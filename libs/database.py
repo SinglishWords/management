@@ -165,15 +165,16 @@ def refreshRedis():
     _ = cursor.execute("select * from `question` where `enable`=1;")
     
     rows = cursor.fetchall()
-    questions = {v["id"]:v for v in map(_toQuestion, rows)}
+    questions = list(map(_toQuestion, rows))
     
     cursor.close()
     
     redisConnection.delete('questionList')
+    redisConnection.set('questionIndex', 0)
 
     with redisConnection.pipeline(transaction=False) as p:
         for q in [json.dumps(e) for e in questions]:
-            p.sadd('questionList', q)
+            p.lpush('questionList', q)
         p.execute()
     
     
