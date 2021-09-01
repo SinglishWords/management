@@ -169,11 +169,11 @@ def refreshRedis():
     
     cursor.close()
     
-    redisConnection.delete('question')
+    redisConnection.delete('questionList')
 
     with redisConnection.pipeline(transaction=False) as p:
         for q in [json.dumps(e) for e in questions]:
-            p.sadd('question', q)
+            p.sadd('questionList', q)
         p.execute()
     
     
