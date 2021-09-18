@@ -59,7 +59,7 @@ def _toDict(keys, vals):
 
 def _toRespondent(args): # args is a tuple
     keys = ["id", "age", "gender", "education", "country_of_birth", "country_of_residence", 
-            "ethnicity", "is_native", "language_spoken", "start_time", "end_time", "email"]
+            "ethnicity", "uuid", "is_native", "language_spoken", "start_time", "end_time", "email"]
     
     return _toDict(keys, args)
 
@@ -165,15 +165,16 @@ def refreshRedis():
     _ = cursor.execute("select * from `question` where `enable`=1;")
     
     rows = cursor.fetchall()
-    questions = {v["id"]:v for v in map(_toQuestion, rows)}
+    questions = list(map(_toQuestion, rows))
     
     cursor.close()
     
-    redisConnection.delete('question')
+    redisConnection.delete('questionList')
+    redisConnection.set('questionIndex', 0)
 
     with redisConnection.pipeline(transaction=False) as p:
         for q in [json.dumps(e) for e in questions]:
-            p.sadd('question', q)
+            p.lpush('questionList', q)
         p.execute()
     
     
