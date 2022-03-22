@@ -1,0 +1,10 @@
+{
+    "_db_host": "mysql",
+    "_db_port": 3306,
+    "_db_name": "singlishwords",
+    "_db_charset": "utf8",
+    "_redis_host": "redis",
+    "_redis_port": 6379,
+    "_db_user": "csqsiew",
+    "_db_passwd": "u98x7v89asx"
+}
