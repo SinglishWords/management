@@ -17,13 +17,15 @@ def initConnections(configs):
 def initMySQLConnection(configs):
     global mysqlconnection
     
-    mysqlconnection = pymysql.connect(  host = configs._db_host, 
-                                   port = configs._db_port, 
-                                   user = configs._db_user, 
-                                   passwd = configs._db_passwd, 
-                                   db = configs._db_name, 
-                                   charset = configs._db_charset,
-                                   autocommit = True)
+    mysqlconnection = pymysql.connect(
+        host = configs._db_host, 
+        port = configs._db_port, 
+        user = configs._db_user, 
+        passwd = configs._db_passwd, 
+        db = configs._db_name,
+        charset = configs._db_charset,
+        autocommit = True
+    )
     return mysqlconnection
 
 
@@ -143,7 +145,6 @@ def initRedisConnection(configs):
     return redisConnection
 
 
-
 def _checkRedisConnectionInitialized(func):
     global redisConnection
     
@@ -155,8 +156,6 @@ def _checkRedisConnectionInitialized(func):
             
     return wrapper
         
-    
-
 @_checkRedisConnectionInitialized
 @_checkMySQLConnectionInitialized
 def refreshRedis():
@@ -176,5 +175,3 @@ def refreshRedis():
         for q in [json.dumps(e) for e in questions]:
             p.lpush('questionList', q)
         p.execute()
-    
-    
