@@ -85,7 +85,7 @@ Hence, if any changes to the questions need to be made, this can be achieved by 
 
 Since Jupyter does not allow for convenient modification of CSV files, one may use the Upload function in the Jupyter window to modify the `cues.csv` file. 
 
-![Upload](images/Upload.png)
+![Upload](images/upload.png)
 
 Ensure, however, that the file is not named incorrectly, and is in the `export-data` folder.
 
