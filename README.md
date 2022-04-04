@@ -81,6 +81,16 @@ In the root directory, the following three notebooks are present:
 
 Executing this notebook will update the questions table in the MySQL database with the questions that are line-separated in `./export-data/cues.csv`. 
 
+That is to say, the format of the CSV file must be similar to the following, where `CueN` is a placeholder for the cue itself.
+
+```
+Cue1
+Cue2
+Cue3
+Cue4
+CueN
+```
+
 Hence, if any changes to the questions need to be made, this can be achieved by modifying the aforementioned file.
 
 Since Jupyter does not allow for convenient modification of CSV files, one may use the Upload function in the Jupyter window to modify the `cues.csv` file. 
