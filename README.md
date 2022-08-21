@@ -22,7 +22,11 @@ $ pip install notebook
 Then, start the Jupyter server using
 
 ```bash
-$ py -m notebook
+$ jupyter notebook
+```
+or, if the above does not work
+```bash
+$ py -m notebook 
 ```
 
 This will run the Jupyter server on `[localhost:8888](http://localhost:8888)` by default.
