@@ -55,7 +55,8 @@ The `export-data` folder contains, in CSV form, all the
 2. questions (`questions.csv`)
 3. answers (`answers.csv`)
 4. respondents (`respondents.csv)`)
-5. combined data (`data.csv`)
+5. combined data in csv format (`data.csv`)
+6. combined data in json format (`data.json`)
 
 If any of the above files are not present, then this means that the Notebooks in the root directory have not been run, hence, there is no exported data.
 
