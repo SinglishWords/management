@@ -1,0 +1,2 @@
+id,age,gender,education,country_of_birth,country_of_residence,ethnicity,uuid,is_native,language_spoken,start_time,end_time
+1,20,Female,PSLE,Singapore,Singapore,Others,swow-fc9f8ef1-1946-4987-8a79-98efc549954e,Yes,"[""Afrikaans"" ""Armenian""]",2022-10-15 00:00:29,2022-10-15 00:01:10
