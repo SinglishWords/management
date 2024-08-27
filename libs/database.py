@@ -72,7 +72,7 @@ def _toQuestion(args): # args is a tuple
 
 
 def _toAnswer(args): # args is a tuple
-    keys = ["id", "association1", "association2", "association3", "time_spend", "question_id", "question", "respondent_id"]
+    keys = ["id", "association1", "association2", "association3", "is_recognised_word", "time_spend", "question_id", "question", "respondent_id"]
     
     return _toDict(keys, args)
 
@@ -94,7 +94,7 @@ def getAnswers():
     global mysqlconnection
     
     cursor = mysqlconnection.cursor()
-    _ = cursor.execute("select a.id, association1, association2, association3, time_spend, \
+    _ = cursor.execute("select a.id, association1, association2, association3, is_recognised_word, time_spend, \
         question_id, word as question, respondent_id from answer a join question q on a.question_id=q.id;")
     rows = cursor.fetchall()
     data = {v["id"]:v for v in map(_toAnswer, rows)}
