@@ -60,7 +60,7 @@ def _toDict(keys, vals):
 
 
 def _toRespondent(args): # args is a tuple
-    keys = ["id", "age", "gender", "education", "country_of_birth", "country_of_residence", 
+    keys = ["id", "age", "gender", "education", "duration_of_sgp_resident", "country_of_birth", "country_of_residence", 
             "ethnicity", "uuid", "is_native", "language_spoken", "start_time", "end_time"]
     
     return _toDict(keys, args)
